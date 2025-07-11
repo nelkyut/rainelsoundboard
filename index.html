@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rainel Soundboard Fun</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Comic Sans MS, cursive;
+      background: url('rainel.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 120px;
+      height: 120px;
+      margin: 10px;
+      border-radius: 20px;
+      font-size: 16px;
+      background-color: #ffcc00;
+      border: 3px solid #000;
+      cursor: pointer;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    }
+
+    button:hover {
+      background-color: #ffd633;
+    }
+  </style>
+</head>
+<body>
+
+  <button onclick="playSound('cow')">🐮 Cow</button>
+  <button onclick="playSound('car')">🚗 Car</button>
+  <button onclick="playSound('drum')">🥁 Drum</button>
+  <button onclick="playSound('cat')">🐱 Cat</button>
+  <button onclick="playSound('dog')">🐶 Dog</button>
+
+  <audio id="cow" src="sounds/cow.mp3"></audio>
+  <audio id="car" src="sounds/car.mp3"></audio>
+  <audio id="drum" src="sounds/drum.mp3"></audio>
+  <audio id="cat" src="sounds/cat.mp3"></audio>
+  <audio id="dog" src="sounds/dog.mp3"></audio>
+
+  <script>
+    function playSound(id) {
+      const audio = document.getElementById(id);
+      audio.currentTime = 0;
+      audio.play();
+    }
+  </script>
+
+</body>
+</html>
