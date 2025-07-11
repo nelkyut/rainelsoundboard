@@ -1,79 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Rainel Soundboard</title>
+  <meta charset="UTF-8" />
+  <title>Princess Soundboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    body {
-      background: url('rainel-bg.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Comic Sans MS', cursive;
+    html, body {
       margin: 0;
-      padding: 20px;
-      text-align: center;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background: url('rainel.jpg') no-repeat center center fixed;
+      background-size: cover;
     }
 
-    .soundboard {
+    h1 {
+      text-align: center;
+      color: #fff;
+      text-shadow: 2px 2px #ff69b4;
+      font-size: 2em;
+      margin: 20px 0;
+    }
+
+    .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
+      gap: 20px;
+      padding: 20px;
     }
 
     .sound-btn {
-      position: relative;
       width: 100px;
       height: 100px;
-      border: 3px solid pink;
+      border: 3px solid white;
       border-radius: 15px;
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: 0 0 10px pink;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
     }
 
-    .sound-btn img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .sound-btn .icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 28px;
+    .sound-btn i {
+      font-size: 32px;
       color: white;
-      text-shadow: 1px 1px 3px black;
-      pointer-events: none;
+      text-shadow: 1px 1px 4px black;
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
 
-  <h1>👑 Rainel Princess Soundboard 👑</h1>
-  <div class="soundboard">
-    <!-- Button Example -->
-    <div class="sound-btn" onclick="playSound('cat.wav')">
-      <img src="rainel1.png" alt="Rainel">
-      <div class="icon">🐱</div>
+  <h1>👑 Rainel's Soundboard 👑</h1>
+
+  <div class="container">
+    <div class="sound-btn" style="background-image: url('b1.jpg');" onclick="playSound('bird')">
+      <i class="fas fa-dove"></i>
     </div>
-    <div class="sound-btn" onclick="playSound('dog.wav')">
-      <img src="rainel2.png" alt="Rainel">
-      <div class="icon">🐶</div>
+    <div class="sound-btn" style="background-image: url('b2.jpg');" onclick="playSound('car')">
+      <i class="fas fa-car"></i>
     </div>
-    <div class="sound-btn" onclick="playSound('laugh.wav')">
-      <img src="rainel3.png" alt="Rainel">
-      <div class="icon">😂</div>
+    <div class="sound-btn" style="background-image: url('b3.jpg');" onclick="playSound('cat')">
+      <i class="fas fa-cat"></i>
     </div>
-    <!-- Add more buttons here -->
+    <div class="sound-btn" style="background-image: url('b4.jpg');" onclick="playSound('dog')">
+      <i class="fas fa-dog"></i>
+    </div>
+    <div class="sound-btn" style="background-image: url('b5.jpg');" onclick="playSound('train')">
+      <i class="fas fa-train"></i>
+    </div>
   </div>
 
+  <!-- Audio elements -->
+  <audio id="bird" src="bird.wav"></audio>
+  <audio id="car" src="car.wav"></audio>
+  <audio id="cat" src="cat.wav"></audio>
+  <audio id="dog" src="dog.wav"></audio>
+  <audio id="train" src="train.wav"></audio>
+
   <script>
-    function playSound(file) {
-      const audio = new Audio(file);
-      audio.play();
+    function playSound(id) {
+      const sound = document.getElementById(id);
+      if (sound) {
+        sound.currentTime = 0;
+        sound.play();
+      }
     }
   </script>
 
