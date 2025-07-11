@@ -2,61 +2,90 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Rainel Soundboard Fun</title>
+  <title>Princess Soundboard Fun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <style>
     body {
       margin: 0;
-      font-family: Comic Sans MS, cursive;
+      font-family: "Comic Sans MS", cursive;
       background: url('rainel.jpg') no-repeat center center fixed;
       background-size: cover;
+      touch-action: manipulation;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 20px;
+      font-size: 28px;
+      color: #fff;
+      background-color: rgba(255, 182, 193, 0.7); /* Light pink */
+      margin: 0;
+    }
+
+    .soundboard {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
+      gap: 20px;
       padding: 20px;
-      box-sizing: border-box;
     }
 
-    button {
-      width: 120px;
-      height: 120px;
-      margin: 10px;
-      border-radius: 20px;
+    .sound-btn {
+      background-color: #ffe0f0;
+      border: 3px solid #d63384;
+      border-radius: 15px;
+      padding: 20px;
       font-size: 16px;
-      background-color: #ffcc00;
-      border: 3px solid #000;
+      font-weight: bold;
+      color: #d63384;
+      box-shadow: 2px 2px 8px #888;
+      width: 120px;
+      height: 100px;
+      text-align: center;
       cursor: pointer;
-      box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
     }
 
-    button:hover {
-      background-color: #ffd633;
+    .sound-btn:hover {
+      transform: scale(1.1);
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
+  <h1>👑 Princess Soundboard Fun 🎶</h1>
+  <div class="soundboard">
+    <button class="sound-btn" onclick="playSound('cat')">🐱 Meow</button>
+    <button class="sound-btn" onclick="playSound('dog')">🐶 Woof</button>
+    <button class="sound-btn" onclick="playSound('car')">🚗 Vroom</button>
+    <button class="sound-btn" onclick="playSound('train')">🚂 Choo Choo</button>
+    <button class="sound-btn" onclick="playSound('piano')">🎹 Piano</button>
+    <button class="sound-btn" onclick="playSound('laugh')">😂 Haha</button>
+    <button class="sound-btn" onclick="playSound('sparkle')">✨ Sparkle</button>
+    <button class="sound-btn" onclick="playSound('unicorn')">🦄 Unicorn</button>
+  </div>
 
-  <button onclick="playSound('cow')">🐮 Cow</button>
-  <button onclick="playSound('car')">🚗 Car</button>
-  <button onclick="playSound('drum')">🥁 Drum</button>
-  <button onclick="playSound('cat')">🐱 Cat</button>
-  <button onclick="playSound('dog')">🐶 Dog</button>
-
-  <audio id="cow" src="sounds/cow.mp3"></audio>
-  <audio id="car" src="sounds/car.mp3"></audio>
-  <audio id="drum" src="sounds/drum.mp3"></audio>
+  <!-- Sample audio placeholders -->
   <audio id="cat" src="sounds/cat.mp3"></audio>
   <audio id="dog" src="sounds/dog.mp3"></audio>
+  <audio id="car" src="sounds/car.mp3"></audio>
+  <audio id="train" src="sounds/train.mp3"></audio>
+  <audio id="piano" src="sounds/piano.mp3"></audio>
+  <audio id="laugh" src="sounds/laugh.mp3"></audio>
+  <audio id="sparkle" src="sounds/sparkle.mp3"></audio>
+  <audio id="unicorn" src="sounds/unicorn.mp3"></audio>
 
   <script>
     function playSound(id) {
       const audio = document.getElementById(id);
-      audio.currentTime = 0;
-      audio.play();
+      if (audio) {
+        audio.currentTime = 0;
+        audio.play();
+      }
     }
   </script>
-
 </body>
 </html>
